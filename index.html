@@ -3,47 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dinamita PDF – Web v2</title>
+  <title>Dinamita PDF – Web v2.1</title>
   <link rel="icon" href="./assets/logo.svg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#f7f9fc; --card:#ffffff; --muted:#617188; --primary:#d32f2f; --primary-2:#b71c1c; --text:#0f1720; --border:#e6ecf2; --ok:#2e7d32; --warn:#ff8f00; --radius:16px;
-    }
-    [data-theme="dark"]{
-      --bg:#0b0b0d; --card:#141418; --muted:#8b98aa; --primary:#e53935; --primary-2:#ef5350; --text:#e8edf5; --border:#222833; --ok:#2ecc71; --warn:#f1c40f;
-    }
-    *{box-sizing:border-box} html,body{height:100%}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#eef2f7 60%,var(--bg));color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;display:flex;flex-direction:column;align-items:center;transition:background .2s ease,color .2s ease;}
-    header{width:100%; max-width:1100px; padding:20px 16px; display:flex; gap:12px; align-items:center; justify-content:space-between;}
-    .brand{display:flex; align-items:center; gap:12px;}
-    .brand img{width:40px;height:40px}
-    h1{font-size:20px; margin:0}
-    .sub{font-size:12px; color:var(--muted)}
-    .controls{display:flex; gap:8px; align-items:center}
-    .pill{padding:6px 10px; border-radius:999px; background:var(--card); border:1px solid var(--border); font-size:12px; color:var(--muted)}
-    main{width:100%; max-width:1100px; padding:0 16px 32px; display:grid; gap:16px;}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-    .card{border-radius:var(--radius); background:var(--card); border:1px solid var(--border); box-shadow:0 10px 24px rgba(15,23,32,0.05); padding:16px;}
-    h2{margin:0 0 12px 0; font-size:16px}
-    .drop{border:1.5px dashed var(--border); border-radius:12px; padding:14px; text-align:center; color:var(--muted); display:flex; align-items:center; justify-content:center; gap:10px; min-height:72px; background:rgba(255,255,255,.6);}
-    input[type="file"]{display:none}
-    .file-label{display:inline-flex; align-items:center; gap:8px; width:100%}
-    .muted{color:var(--muted); font-size:12px}
-    .row{display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:8px}
-    .field{display:flex; flex-direction:column; gap:6px; width:100%}
-    .field input,.field select{width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--border); background:#ffffff10; color:var(--text);}
-    .actions{display:flex; gap:8px; flex-wrap:wrap}
-    .out{max-height:260px; overflow:auto; padding:8px; border-radius:10px; background:#ffffff15; border:1px solid var(--border);}
-    .canvas-wrap{display:grid; gap:8px}
-    canvas{width:100%; background:#fff; border:1px solid var(--border); border-radius:10px}
-    footer{opacity:.75; font-size:12px; padding:8px 0 22px 0}
-    .ok{color:var(--ok)} .warn{color:var(--warn)}
-    button,.btn{appearance:none; border:none; background:var(--primary); color:white; padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer; transition:transform .04s ease, box-shadow .2s ease, background .2s ease; box-shadow:0 6px 16px rgba(211,47,47,0.25);}
-    button:hover{transform:translateY(-1px); background:var(--primary-2)}
-    .ghost{background:transparent; color:var(--text); border:1px solid var(--border); box-shadow:none}
-    .ghost:hover{background:#f5f7fb}
-    .banner{display:none; margin:0 16px; max-width:1100px; width:calc(100% - 32px); border:1px solid #ffe0b2; background:#fff8e1; color:#7a4a00; padding:10px 12px; border-radius:12px; font-size:13px;}
+    :root{--bg:#f7f9fc;--card:#fff;--muted:#617188;--primary:#d32f2f;--primary-2:#b71c1c;--text:#0f1720;--border:#e6ecf2;--ok:#2e7d32;--warn:#ff8f00;--radius:16px}
+    [data-theme="dark"]{--bg:#0b0b0d;--card:#141418;--muted:#8b98aa;--primary:#e53935;--primary-2:#ef5350;--text:#e8edf5;--border:#222833;--ok:#2ecc71;--warn:#f1c40f}
+    *{box-sizing:border-box}html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#eef2f7 60%,var(--bg));color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;display:flex;flex-direction:column;align-items:center;transition:background .2s,color .2s}
+    header{width:100%;max-width:1100px;padding:20px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}.brand img{width:40px;height:40px}
+    h1{font-size:20px;margin:0}.sub{font-size:12px;color:var(--muted)}
+    .controls{display:flex;gap:8px;align-items:center}.pill{padding:6px 10px;border-radius:999px;background:var(--card);border:1px solid var(--border);font-size:12px;color:var(--muted)}
+    main{width:100%;max-width:1100px;padding:0 16px 32px;display:grid;gap:16px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .card{border-radius:var(--radius);background:var(--card);border:1px solid var(--border);box-shadow:0 10px 24px rgba(15,23,32,.05);padding:16px}
+    h2{margin:0 0 12px;font-size:16px}
+    .drop{border:1.5px dashed var(--border);border-radius:12px;padding:14px;text-align:center;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:10px;min-height:72px;background:rgba(255,255,255,.6)}
+    input[type=file]{display:none}.file-label{display:inline-flex;align-items:center;gap:8px;width:100%}
+    .muted{color:var(--muted);font-size:12px}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+    .field{display:flex;flex-direction:column;gap:6px;width:100%}.field input,.field select{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:#ffffff10;color:var(--text)}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}.out{max-height:260px;overflow:auto;padding:8px;border-radius:10px;background:#ffffff15;border:1px solid var(--border)}
+    .canvas-wrap{display:grid;gap:8px}canvas{width:100%;background:#fff;border:1px solid var(--border);border-radius:10px}
+    footer{opacity:.75;font-size:12px;padding:8px 0 22px}.ok{color:var(--ok)}.warn{color:var(--warn)}
+    button,.btn{appearance:none;border:none;background:var(--primary);color:#fff;padding:10px 14px;border-radius:12px;font-weight:600;cursor:pointer;transition:transform .04s,box-shadow .2s,background .2s;box-shadow:0 6px 16px rgba(211,47,47,.25)}
+    button:hover{transform:translateY(-1px);background:var(--primary-2)}.ghost{background:transparent;color:var(--text);border:1px solid var(--border);box-shadow:none}.ghost:hover{background:#f5f7fb}
+    .banner{display:none;margin:0 16px;max-width:1100px;width:calc(100% - 32px);border:1px solid #ffe0b2;background:#fff8e1;color:#7a4a00;padding:10px 12px;border-radius:12px;font-size:13px}
     @media (max-width:980px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
@@ -51,85 +36,43 @@
   <header>
     <div class="brand">
       <img src="./assets/logo.svg" alt="Dinamita logo"/>
-      <div>
-        <h1>Dinamita PDF – Web v2</h1>
-        <div class="sub">Unir / Dividir / Imágenes → PDF / PDF → PNG</div>
-      </div>
+      <div><h1>Dinamita PDF – Web v2.1</h1><div class="sub">Unir / Dividir / Imágenes → PDF / PDF → PNG</div></div>
     </div>
-    <div class="controls">
-      <button id="themeBtn" class="ghost">Modo oscuro</button>
-      <div class="pill">Estático</div>
-    </div>
+    <div class="controls"><button id="themeBtn" class="ghost">Modo oscuro</button><div class="pill">Estático</div></div>
   </header>
 
   <div id="warn" class="banner"></div>
 
   <main>
     <div class="grid">
-
       <section class="card">
         <h2>Unir PDFs</h2>
-        <label class="drop file-label">
-          <input id="mergeFiles" type="file" accept="application/pdf" multiple />
-          <span>Arrastra o selecciona múltiples PDFs…</span>
-        </label>
-        <div class="row actions">
-          <button onclick="mergePDFs()">Unir y Descargar</button>
-          <span class="muted">El orden es el que selecciones.</span>
-        </div>
+        <label class="drop file-label"><input id="mergeFiles" type="file" accept="application/pdf" multiple /><span>Arrastra o selecciona múltiples PDFs…</span></label>
+        <div class="row actions"><button onclick="mergePDFs()">Unir y Descargar</button><span class="muted">El orden es el que selecciones.</span></div>
         <div id="mergeLog" class="out muted" style="margin-top:8px"></div>
       </section>
 
       <section class="card">
         <h2>Dividir PDF por rangos</h2>
-        <label class="drop file-label">
-          <input id="splitFile" type="file" accept="application/pdf" />
-          <span>Selecciona un PDF…</span>
-        </label>
-        <div class="row">
-          <div class="field">
-            <label>Rangos (ejemplo <b>1-3,7,10-</b>)</label>
-            <input id="ranges" placeholder="1-3,7,10-" />
-          </div>
-        </div>
-        <div class="row actions">
-          <button onclick="splitPDF()">Dividir y Descargar ZIP</button>
-          <span class="muted">Soporta hojas sueltas y rangos abiertos.</span>
-        </div>
+        <label class="drop file-label"><input id="splitFile" type="file" accept="application/pdf" /><span>Selecciona un PDF…</span></label>
+        <div class="row"><div class="field"><label>Rangos (ejemplo <b>1-3,7,10-</b>)</label><input id="ranges" placeholder="1-3,7,10-" /></div></div>
+        <div class="row actions"><button onclick="splitPDF()">Dividir y Descargar ZIP</button><span class="muted">Soporta hojas sueltas y rangos abiertos.</span></div>
         <div id="splitLog" class="out muted" style="margin-top:8px"></div>
       </section>
 
       <section class="card">
         <h2>Imágenes → PDF</h2>
-        <label class="drop file-label">
-          <input id="imgFiles" type="file" accept="image/*" multiple />
-          <span>Selecciona imágenes (PNG/JPG)…</span>
-        </label>
-        <div class="row actions">
-          <button onclick="imagesToPDF()">Crear PDF</button>
-          <span class="muted">Se agregan en el orden seleccionado.</span>
-        </div>
+        <label class="drop file-label"><input id="imgFiles" type="file" accept="image/*" multiple /><span>Selecciona imágenes (PNG/JPG)…</span></label>
+        <div class="row actions"><button onclick="imagesToPDF()">Crear PDF</button><span class="muted">Se agregan en el orden seleccionado.</span></div>
         <div id="imgLog" class="out muted" style="margin-top:8px"></div>
       </section>
 
       <section class="card">
         <h2>PDF → PNG (vista previa)</h2>
-        <label class="drop file-label">
-          <input id="previewFile" type="file" accept="application/pdf" />
-          <span>Selecciona un PDF…</span>
-        </label>
-        <div class="row">
-          <div class="field" style="max-width:220px">
-            <label>DPI (escala)</label>
-            <input id="dpi" type="number" value="144" min="72" step="24" />
-          </div>
-          <div class="actions">
-            <button onclick="renderPreview()">Renderizar</button>
-          </div>
-        </div>
+        <label class="drop file-label"><input id="previewFile" type="file" accept="application/pdf" /><span>Selecciona un PDF…</span></label>
+        <div class="row"><div class="field" style="max-width:220px"><label>DPI (escala)</label><input id="dpi" type="number" value="144" min="72" step="24" /></div><div class="actions"><button onclick="renderPreview()">Renderizar</button></div></div>
         <div id="previewWrap" class="canvas-wrap" style="margin-top:8px"></div>
       </section>
-
     </div>
     <footer>Diseñado por Dinamita Apps • Solo navegador • Para Office→PDF/Comprimir: versión con servidor</footer>
   </main>
@@ -139,167 +82,49 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.6.82/pdf.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.6.82/pdf.worker.min.js";
+    }
+  </script>
 
   <script>
-    const body = document.body;
-    const btn = document.getElementById('themeBtn');
-    btn.addEventListener('click', ()=>{
-      const dark = body.getAttribute('data-theme') === 'dark';
-      if(dark){ body.removeAttribute('data-theme'); btn.textContent = 'Modo oscuro'; }
-      else { body.setAttribute('data-theme','dark'); btn.textContent = 'Modo claro'; }
-    });
+    const body=document.body;const btn=document.getElementById('themeBtn');
+    btn.addEventListener('click',()=>{const dark=body.getAttribute('data-theme')==='dark';if(dark){body.removeAttribute('data-theme');btn.textContent='Modo oscuro';}else{body.setAttribute('data-theme','dark');btn.textContent='Modo claro';}});
+    const warn=document.getElementById('warn');function showWarn(msg){warn.style.display='block';warn.textContent=msg;}
+    window.addEventListener('load',()=>{if(!window.PDFLib||!window.JSZip||!window.saveAs||!window.pdfjsLib){showWarn('No se cargaron librerías desde CDN. Sube estos archivos a un hosting con internet o usa copias locales.');}});
+    const log=(el,msg)=>{el.innerHTML+=msg+'<br/>';el.scrollTop=el.scrollHeight;};
 
-    const warn = document.getElementById('warn');
-    function showWarn(msg){ warn.style.display='block'; warn.textContent = msg; }
-
-    window.addEventListener('load', ()=>{
-      if(!window.PDFLib || !window.JSZip || !window.saveAs || !window.pdfjsLib){
-        showWarn("No se cargaron librerías desde CDN. Sube estos archivos a un hosting con internet o usa copias locales.");
-      }
-    });
-
-    const log = (el, msg) => { el.innerHTML += msg + "<br/>"; el.scrollTop = el.scrollHeight; };
-
-    // MERGE
     async function mergePDFs(){
-      if(!window.PDFLib){ return showWarn("Falta PDF-Lib."); }
-      const input = document.getElementById('mergeFiles');
-      const logEl = document.getElementById('mergeLog');
-      logEl.innerHTML = "";
-      if(!input.files.length){ log(logEl, "⚠️ Selecciona al menos un PDF."); return; }
+      if(!window.PDFLib){return showWarn('Falta PDF-Lib.');}
+      const input=document.getElementById('mergeFiles');const logEl=document.getElementById('mergeLog');logEl.innerHTML='';
+      if(!input.files.length){log(logEl,'⚠️ Selecciona al menos un PDF.');return;}
+      const {PDFDocument}=PDFLib;const outPdf=await PDFDocument.create();
+      for(const f of input.files){log(logEl,'Leyendo: '+f.name);const bytes=await f.arrayBuffer();const src=await PDFDocument.load(bytes);const copied=await outPdf.copyPages(src,src.getPageIndices());copied.forEach(p=>outPdf.addPage(p));}
+      const outBytes=await outPdf.save();const blob=new Blob([outBytes],{type:'application/pdf'});saveAs(blob,'merged.pdf');log(logEl,"<span class='ok'>✅ Listo: merged.pdf</span>");}
 
-      const { PDFDocument } = PDFLib;
-      const outPdf = await PDFDocument.create();
-
-      for(const f of input.files){
-        log(logEl, "Leyendo: " + f.name);
-        const bytes = await f.arrayBuffer();
-        const src = await PDFDocument.load(bytes);
-        const copied = await outPdf.copyPages(src, src.getPageIndices());
-        copied.forEach(p => outPdf.addPage(p));
-      }
-
-      const outBytes = await outPdf.save();
-      const blob = new Blob([outBytes], {type: "application/pdf"});
-      saveAs(blob, "merged.pdf");
-      log(logEl, "<span class='ok'>✅ Listo: merged.pdf</span>");
-    }
-
-    // SPLIT
-    function parseRanges(str, total){
-      const parts = str.split(',').map(s=>s.trim()).filter(Boolean);
-      const out = [];
-      for(const p of parts){
-        if(p.includes('-')){
-          let [a,b] = p.split('-');
-          a = a ? parseInt(a,10) : 1;
-          b = b ? parseInt(b,10) : total;
-          if(!isNaN(a) && !isNaN(b) && a>=1 && b>=a) out.push([a,b]);
-        }else{
-          const n = parseInt(p,10);
-          if(!isNaN(n) && n>=1 && n<=total) out.push([n,n]);
-        }
-      }
-      return out;
-    }
+    function parseRanges(str,total){const parts=str.split(',').map(s=>s.trim()).filter(Boolean);const out=[];for(const p of parts){if(p.includes('-')){let [a,b]=p.split('-');a=a?parseInt(a,10):1;b=b?parseInt(b,10):total;if(!isNaN(a)&&!isNaN(b)&&a>=1&&b>=a)out.push([a,b]);}else{const n=parseInt(p,10);if(!isNaN(n)&&n>=1&&n<=total)out.push([n,n]);}}return out;}
 
     async function splitPDF(){
-      if(!window.PDFLib || !window.JSZip){ return showWarn("Faltan PDF-Lib o JSZip."); }
-      const file = document.getElementById('splitFile').files[0];
-      const ranges = document.getElementById('ranges').value.trim();
-      const logEl = document.getElementById('splitLog');
-      logEl.innerHTML = "";
+      if(!window.PDFLib||!window.JSZip){return showWarn('Faltan PDF-Lib o JSZip.');}
+      const file=document.getElementById('splitFile').files[0];const ranges=document.getElementById('ranges').value.trim();const logEl=document.getElementById('splitLog');logEl.innerHTML='';
+      if(!file){log(logEl,'⚠️ Selecciona un PDF.');return;} if(!ranges){log(logEl,'⚠️ Escribe rangos, ej: 1-3,7,10-');return;}
+      const {PDFDocument}=PDFLib;const bytes=await file.arrayBuffer();const src=await PDFDocument.load(bytes);const total=src.getPageCount();const rs=parseRanges(ranges,total);if(!rs.length){log(logEl,'⚠️ Rangos inválidos.');return;}
+      const zip=new JSZip();let idx=1;for(const [a,b] of rs){const outDoc=await PDFDocument.create();const pages=await outDoc.copyPages(src,Array.from({length:b-a+1},(_,i)=>i+(a-1)));pages.forEach(p=>outDoc.addPage(p));const outBytes=await outDoc.save();zip.file(`split_${idx}_${a}-${b}.pdf`,outBytes);log(logEl,`✔️ split_${idx}_${a}-${b}.pdf`);idx++;}
+      const content=await zip.generateAsync({type:'blob'});saveAs(content,'splits.zip');log(logEl,"<span class='ok'>✅ ZIP listo: splits.zip</span>");}
 
-      if(!file){ log(logEl, "⚠️ Selecciona un PDF."); return; }
-      if(!ranges){ log(logEl, "⚠️ Escribe rangos, ej: 1-3,7,10-"); return; }
-
-      const { PDFDocument } = PDFLib;
-      const bytes = await file.arrayBuffer();
-      const src = await PDFDocument.load(bytes);
-      const total = src.getPageCount();
-      const rs = parseRanges(ranges, total);
-      if(!rs.length){ log(logEl, "⚠️ Rangos inválidos."); return; }
-
-      const zip = new JSZip();
-      let idx = 1;
-      for(const [a,b] of rs){
-        const outDoc = await PDFDocument.create();
-        const pages = await outDoc.copyPages(src, Array.from({length:b-a+1}, (_,i)=>i+(a-1)));
-        pages.forEach(p=>outDoc.addPage(p));
-        const outBytes = await outDoc.save();
-        zip.file(`split_${idx}_${a}-${b}.pdf`, outBytes);
-        log(logEl, `✔️ split_${idx}_${a}-${b}.pdf`);
-        idx++;
-      }
-      const content = await zip.generateAsync({type:"blob"});
-      saveAs(content, "splits.zip");
-      log(logEl, "<span class='ok'>✅ ZIP listo: splits.zip</span>");
-    }
-
-    // IMAGES -> PDF
     async function imagesToPDF(){
-      if(!window.PDFLib){ return showWarn("Falta PDF-Lib."); }
-      const files = document.getElementById('imgFiles').files;
-      const logEl = document.getElementById('imgLog');
-      logEl.innerHTML = "";
-      if(!files.length){ log(logEl, "⚠️ Selecciona imágenes."); return; }
+      if(!window.PDFLib){return showWarn('Falta PDF-Lib.');}
+      const files=document.getElementById('imgFiles').files;const logEl=document.getElementById('imgLog');logEl.innerHTML='';if(!files.length){log(logEl,'⚠️ Selecciona imágenes.');return;}
+      const {PDFDocument}=PDFLib;const pdf=await PDFDocument.create();
+      for(const f of files){const buf=await f.arrayBuffer();let img;if(f.type.includes('png')){img=await pdf.embedPng(buf);}else{img=await pdf.embedJpg(buf);}const {width,height}=img.scale(1);const page=pdf.addPage([width,height]);page.drawImage(img,{x:0,y:0,width,height});log(logEl,'✔️ Agregada: '+f.name);}
+      const out=await pdf.save();saveAs(new Blob([out],{type:'application/pdf'}),'images_merged.pdf');log(logEl,"<span class='ok'>✅ Listo: images_merged.pdf</span>");}
 
-      const { PDFDocument } = PDFLib;
-      const pdf = await PDFDocument.create();
-
-      for(const f of files){
-        const buf = await f.arrayBuffer();
-        let img;
-        if(f.type.includes("png")){
-          img = await pdf.embedPng(buf);
-        }else{
-          img = await pdf.embedJpg(buf);
-        }
-        const { width, height } = img.scale(1);
-        const page = pdf.addPage([width, height]);
-        page.drawImage(img, { x:0, y:0, width, height });
-        log(logEl, "✔️ Agregada: " + f.name);
-      }
-
-      const out = await pdf.save();
-      saveAs(new Blob([out], {type:"application/pdf"}), "images_merged.pdf");
-      log(logEl, "<span class='ok'>✅ Listo: images_merged.pdf</span>");
-    }
-
-    // PDF -> PNG
     async function renderPreview(){
-      if(!window.pdfjsLib){ return showWarn("Falta pdf.js."); }
-      const file = document.getElementById('previewFile').files[0];
-      const dpi = parseInt(document.getElementById('dpi').value || "144", 10);
-      const wrap = document.getElementById('previewWrap');
-      wrap.innerHTML = "";
-      if(!file){ wrap.innerHTML = "<div class='muted'>⚠️ Selecciona un PDF.</div>"; return; }
-
-      const bytes = await file.arrayBuffer();
-      const scale = dpi / 96.0;
-
-      const loadingTask = pdfjsLib.getDocument({ data: bytes });
-      const pdf = await loadingTask.promise;
-
-      for(let p=1; p<=pdf.numPages; p++){
-        const page = await pdf.getPage(p);
-        const viewport = page.getViewport({ scale });
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = Math.ceil(viewport.width);
-        canvas.height = Math.ceil(viewport.height);
-        await page.render({ canvasContext: ctx, viewport }).promise;
-        wrap.appendChild(canvas);
-
-        const link = document.createElement('a');
-        link.textContent = `Descargar PNG página ${p}`;
-        link.className = "btn ghost";
-        link.style.marginBottom = "8px";
-        link.href = canvas.toDataURL("image/png");
-        link.download = `page_${p}.png`;
-        wrap.appendChild(link);
-      }
-    }
+      if(!window.pdfjsLib){return showWarn('Falta pdf.js.');}
+      const file=document.getElementById('previewFile').files[0];const dpi=parseInt(document.getElementById('dpi').value||'144',10);const wrap=document.getElementById('previewWrap');wrap.innerHTML='';if(!file){wrap.innerHTML="<div class='muted'>⚠️ Selecciona un PDF.</div>";return;}
+      const bytes=await file.arrayBuffer();const scale=dpi/96.0;const loadingTask=pdfjsLib.getDocument({data:bytes});const pdf=await loadingTask.promise;
+      for(let p=1;p<=pdf.numPages;p++){const page=await pdf.getPage(p);const viewport=page.getViewport({scale});const canvas=document.createElement('canvas');const ctx=canvas.getContext('2d');canvas.width=Math.ceil(viewport.width);canvas.height=Math.ceil(viewport.height);await page.render({canvasContext:ctx,viewport}).promise;wrap.appendChild(canvas);const link=document.createElement('a');link.textContent=`Descargar PNG página ${p}`;link.className='btn ghost';link.style.marginBottom='8px';link.href=canvas.toDataURL('image/png');link.download=`page_${p}.png`;wrap.appendChild(link);}}
   </script>
 </body>
 </html>
